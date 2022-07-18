@@ -6,6 +6,7 @@ const app = express();
 // 使用静态资源 请求加上 /static前缀
 app.use("/static", express.static(path.join(__dirname, "public")));
 
+//路由
 app.use("/user", user);
 
 app.listen(process.env.PORT || 8000, () => {

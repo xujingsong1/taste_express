@@ -11,8 +11,19 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  account  String @default("")
-  name     String @default("")
-  password String @default("")
+  id        Int       @id @default(autoincrement())
+  account   String    @default("")
+  name      String    @default("")
+  password  String    @default("")
+  createAt  DateTime  @default(now())
+  updateAt  DateTime  @updatedAt
+  deletedAt DateTime?
+}
+
+model Setting {
+  id                 Int       @id @default(autoincrement())
+  userPasswordSecret String    @default("dunag")
+  createAt           DateTime  @default(now())
+  updateAt           DateTime  @updatedAt
+  deletedAt          DateTime?
 }
